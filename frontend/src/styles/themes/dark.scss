@@ -1,0 +1,17 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    color: #f9fafb;
+  }
+
+  .card { background: #1f2937; color: #f9fafb; }
+  .card-header { border-bottom-color: #374151; }
+
+  .form-input {
+    background: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+
+  .form-label { color: #e5e7eb; }
+}

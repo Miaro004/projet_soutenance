@@ -1,0 +1,312 @@
+// Variables de couleurs - Style Facebook
+$primary-blue: #1877f2;
+$primary-pink: black;
+$dark-pink: #be185d;
+$success-green: orange;
+$black: #000000;
+$dark-gray: #1c1e21;
+$text-gray: #606770;
+$light-gray: #dddfe2;
+$bg-gray: #f0f2f5;
+$white: #ffffff;
+
+// Mixins
+@mixin transition($property: all, $duration: 0.2s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+}
+
+// Container principal - Style Facebook
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-gray;
+  padding: 2rem 1rem;
+}
+
+// Card de register
+.register-card {
+  max-width: 432px;
+  width: 100%;
+}
+
+// Header - Style Facebook
+.register-header {
+  text-align: center;
+  margin-bottom: 1rem;
+
+  .logo-container {
+    margin: 0 auto 1rem;
+    display: inline-block;
+
+    .logo-text {
+      color: $primary-pink;
+      font-weight: 700;
+      font-size: 3.5rem;
+      letter-spacing: -0.02em;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1;
+    }
+  }
+
+  .title {
+    font-size: 2rem;
+    color: $dark-gray;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 0.938rem;
+    color: $text-gray;
+    font-weight: 400;
+    margin: 0 auto;
+    max-width: 500px;
+    line-height: 1.4;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    padding: 0 1rem;
+  }
+}
+
+// Formulaire - Style Facebook
+.register-form {
+  background: $white;
+  padding: 1rem;
+  border-radius: 8px;
+  @include box-shadow((0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1)));
+  margin-top: 1.5rem;
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 0.75rem;
+    position: relative;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: none; // Labels cachés comme Facebook
+    }
+
+    input {
+      appearance: none;
+      width: 100%;
+      padding: 0.688rem 0.75rem;
+      border: 1px solid $light-gray;
+      border-radius: 5px;
+      font-size: 0.938rem;
+      color: $dark-gray;
+      background-color: $bg-gray;
+      @include transition(border-color);
+      font-family: Helvetica, Arial, sans-serif;
+      line-height: 1.2;
+
+      &::placeholder {
+        color: $text-gray;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $primary-pink;
+        background-color: $white;
+        @include box-shadow(0 0 0 2px rgba(236, 72, 153, 0.2));
+      }
+    }
+
+    select {
+      appearance: none;
+      width: 100%;
+      padding: 0.688rem 0.75rem;
+      border: 1px solid $light-gray;
+      border-radius: 5px;
+      font-size: 0.938rem;
+      color: $dark-gray;
+      background-color: $bg-gray;
+      @include transition(border-color);
+      font-family: Helvetica, Arial, sans-serif;
+      line-height: 1.2;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23606770' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      padding-right: 2.5rem;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-pink;
+        background-color: $white;
+        @include box-shadow(0 0 0 2px rgba(236, 72, 153, 0.2));
+      }
+    }
+  }
+
+  .terms-text {
+    font-size: 0.688rem;
+    color: $text-gray;
+    text-align: center;
+    line-height: 1.4;
+    margin: 0.75rem 0;
+    padding: 0 0.5rem;
+
+    a {
+      color: $primary-pink;
+      text-decoration: none;
+      font-weight: 500;
+      @include transition(color);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .submit-button {
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 4rem;
+    margin: 0.75rem auto 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $white;
+    background: $success-green;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    @include transition(background-color);
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+
+    &:hover {
+      background: darken($success-green, 5%);
+    }
+
+    &:active {
+      background: darken($success-green, 8%);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: $success-green;
+    }
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+// Lien de connexion
+.login-link {
+  text-align: center;
+  margin-top: 1.75rem;
+
+  a {
+    color: $primary-pink;
+    font-size: 1.063rem;
+    text-decoration: none;
+    font-weight: 600;
+    @include transition(color);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 640px) {
+  .register-container {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .register-card {
+    max-width: 432px;
+  }
+
+  .register-header {
+    .logo-container .logo-text {
+      font-size: 3rem;
+    }
+
+    .title {
+      font-size: 1.75rem;
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+    }
+  }
+
+  .register-form {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-header {
+    .logo-container .logo-text {
+      font-size: 2.5rem;
+    }
+
+    .title {
+      font-size: 1.5rem;
+    }
+
+    .subtitle {
+      font-size: 0.813rem;
+      padding: 0;
+    }
+  }
+
+  .register-form {
+    .form-group input,
+    .form-group select {
+      font-size: 0.875rem;
+      padding: 0.625rem 0.75rem;
+    }
+
+    .submit-button {
+      padding: 0.5rem 3rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+// Suppression des animations
+.register-card,
+.register-header,
+.register-form {
+  animation: none;
+}
+
+// Police système Facebook
+* {
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

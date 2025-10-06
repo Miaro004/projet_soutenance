@@ -1,0 +1,13 @@
+@mixin gradient-bg($gradient) {
+  background: $gradient;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition($time: 0.3s) {
+  transition: all $time ease-in-out;
+}

@@ -1,0 +1,139 @@
+/* Styles specific to UserDashboard page */
+
+.user-dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+  padding: 2rem;
+}
+
+.user-dashboard-header {
+  background: linear-gradient(90deg, #4f46e5 0%, #4338ca 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.user-dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.stat-label {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.user-dashboard-dossiers {
+  margin-top: 3rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.user-dashboard-dossiers h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.dossier-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.dossier-item:hover {
+  background-color: #f9fafb;
+}
+
+.dossier-info h4 {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.dossier-info p {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-en_attente {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.status-en_cours {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.status-traite {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.arrive-button {
+  background-color: #059669;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.arrive-button:hover {
+  background-color: #047857;
+}

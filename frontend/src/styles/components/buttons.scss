@@ -1,0 +1,19 @@
+.btn {
+  @include flex-center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: none;
+  @include transition();
+
+  &-primary { @include gradient-bg(var(--gradient-primary)); color: white; }
+  &-secondary { @include gradient-bg(var(--gradient-secondary)); color: white; }
+  &-success { @include gradient-bg(var(--gradient-success)); color: white; }
+  &-warning { @include gradient-bg(var(--gradient-warning)); color: white; }
+  &-danger { @include gradient-bg(var(--gradient-danger)); color: white; }
+
+  &:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  &:active { transform: translateY(0); }
+}

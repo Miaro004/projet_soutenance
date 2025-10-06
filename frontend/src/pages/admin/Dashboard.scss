@@ -1,0 +1,262 @@
+// Dashboard.scss
+// Variables
+$primary-color: #2563eb;
+$primary-hover: #1d4ed8;
+$gray-100: #f3f4f6;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-900: #111827;
+$white: #ffffff;
+$yellow-100: #fef3c7;
+$yellow-800: #92400e;
+$blue-100: #dbeafe;
+$blue-800: #1e40af;
+$green-100: #d1fae5;
+$green-800: #065f46;
+$shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$transition: all 0.3s ease;
+
+// Dashboard principal
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  // Header du dashboard
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: $gray-900;
+  }
+
+  // Loader
+  &__loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16rem;
+  }
+
+  &__spinner {
+    animation: spin 1s linear infinite;
+    border-radius: 9999px;
+    height: 3rem;
+    width: 3rem;
+    border: 2px solid transparent;
+    border-bottom-color: $primary-color;
+  }
+
+  // Grille des stats
+  &__stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  // Carte de statistique
+  &__stat-card {
+    background-color: $white;
+    overflow: hidden;
+    box-shadow: $shadow;
+    border-radius: 0.5rem;
+  }
+
+  &__stat-content {
+    padding: 1.25rem;
+  }
+
+  &__stat-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__stat-icon {
+    flex-shrink: 0;
+
+    svg {
+      height: 1.5rem;
+      width: 1.5rem;
+      color: $gray-400;
+    }
+  }
+
+  &__stat-details {
+    margin-left: 1.25rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__stat-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $gray-500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__stat-value {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: $gray-900;
+    margin-top: 0.25rem;
+  }
+
+  // Section des statistiques détaillées
+  &__section {
+    background-color: $white;
+    box-shadow: $shadow;
+    border-radius: 0.5rem;
+  }
+
+  &__section-content {
+    padding: 1rem 1.5rem;
+
+    @media (min-width: 640px) {
+      padding: 1.5rem;
+    }
+  }
+
+  &__section-title {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    color: $gray-900;
+    margin-bottom: 1rem;
+  }
+
+  // Grille des statuts de dossiers
+  &__dossier-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__dossier-stat {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+
+    &--en-attente {
+      background-color: $yellow-100;
+      color: $yellow-800;
+    }
+
+    &--en-cours {
+      background-color: $blue-100;
+      color: $blue-800;
+    }
+
+    &--traite {
+      background-color: $green-100;
+      color: $green-800;
+    }
+
+    &--default {
+      background-color: $gray-100;
+      color: $gray-900;
+    }
+  }
+
+  &__dossier-icon {
+    svg {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+  }
+
+  &__dossier-info {
+    margin-left: 0.75rem;
+  }
+
+  &__dossier-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  &__dossier-count {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  // Grille des actions rapides
+  &__actions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__action-card {
+    padding: 1rem;
+    border: 2px solid $gray-300;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s ease;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+      border-color: $primary-color;
+
+      .dashboard__action-icon svg {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__action-icon {
+    margin-bottom: 0.5rem;
+
+    svg {
+      height: 2rem;
+      width: 2rem;
+      color: $gray-400;
+      transition: color 0.2s ease;
+    }
+  }
+
+  &__action-title {
+    font-weight: 500;
+    color: $gray-900;
+    margin-bottom: 0.25rem;
+  }
+
+  &__action-description {
+    font-size: 0.875rem;
+    color: $gray-500;
+  }
+}
+
+// Animation de rotation pour le spinner
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
